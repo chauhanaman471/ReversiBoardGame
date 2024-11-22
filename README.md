@@ -1,32 +1,36 @@
 # Reversi Game
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Prerequisites](#prerequisites)
-- [Setup and Compilation](#setup-and-compilation)
-- [Usage](#usage)
-- [Game Rules](#game-rules)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Introduction
-This project implements a command-line version of the classic Reversi (Othello) game. Two players alternate turns, placing tokens on the board while attempting to capture their opponent's pieces by flanking them. The game continues until the board is full or no player can make a valid move. The player with the most tokens on the board at the end wins.
-
-## Features
-- **Flexible Board Size**: Users can specify the board dimensions (e.g., 8x8 for a standard Reversi board).
-- **Full Game Rules**: Includes move validation, token flipping, and proper handling of the game state.
-- **Text-Based Board Visualization**: The game visually displays the board after every move, making it easy to follow along.
-- **End Game Detection**: Automatically detects when the game ends and announces the winner.
+This project implements a command-line version of the classic Reversi (Othello) game. Two players alternate turns to place tokens on a board, attempting to capture their opponent's pieces by flanking them.
 
 ## Project Structure
-ReversiGame/
-  ├── main.cpp                  # Entry point of the game
-  ├── ReversiBoard.h            # Header file for the board logic
-  ├── ReversiBoard.cpp          # Implementation of the board logic
-  ├── ReversiConsoleView.h      # Header file for board visualization
-  ├── ReversiConsoleView.cpp    # Implementation of board visualization
-  └── README.md                 # Documentation (this file)
 
+### Classes
 
+#### **ReversiBoard**
+- **Description**: Handles the core game logic, including board setup, move validation, and token flipping.
+- **Methods**:
+  - `initializeBoard()`: Initializes the board with the starting positions.
+  - `isValidMove(int x, int y, char player)`: Validates the player's move.
+  - `makeMove(int x, int y, char player)`: Makes the move and flips opponent tokens if valid.
+  - `flipTokens(int x, int y, char player)`: Flips the opponent's pieces after a valid move.
+  - `printBoard()`: Displays the current state of the board.
+  - `isGameOver()`: Checks if the game has ended (no valid moves left or board full).
+  - `getWinner()`: Determines the winner based on the number of pieces on the board.
+
+#### **ReversiConsoleView**
+- **Description**: Responsible for displaying the game board and interacting with the user.
+- **Methods**:
+  - `printBoard(const char board[8][8])`: Prints the board to the console.
+  - `getInput()`: Prompts the player to enter a move (x, y).
+  - `displayMessage(string message)`: Displays messages to the player (e.g., invalid moves, winner announcements).
+
+## Basic Functionality
+
+- **Game Setup**: The game initializes with an 8x8 board, setting the tokens to their default starting positions.
+- **Gameplay**: Players take turns to provide coordinates (x, y) for their moves. The game checks if the move is valid, updates the board, and flips any opponent tokens as necessary.
+- **Winning Condition**: The game ends when there are no valid moves or the board is full. The player with the most tokens on the board wins.
+- **Turn System**: Player 1 uses 'x' and Player 2 uses 'o'. The players alternate turns to make moves.
+
+## License
+
+This project is licensed under the MIT License.
