@@ -31,6 +31,3 @@ This project implements a command-line version of the classic Reversi (Othello) 
 - **Winning Condition**: The game ends when there are no valid moves or the board is full. The player with the most tokens on the board wins.
 - **Turn System**: Player 1 uses 'x' and Player 2 uses 'o'. The players alternate turns to make moves.
 
-## License
-
-This project is licensed under the MIT License.
